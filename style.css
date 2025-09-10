@@ -1,0 +1,581 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* Global Styles */
+:root {
+    --bg-dark: #0A0A0E;
+    --primary-blue: #5C6BC0;
+    --primary-purple: #9575CD;
+    --primary-orange: #FF6E40;
+    --text-light: #E0E0E0;
+    --glass-blur: 10px;
+    --glass-bg: rgba(255, 255, 255, 0.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    line-height: 1.6;
+    overflow-x: hidden;
+    
+}
+
+#bg-video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    filter: brightness(0.4);
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+    background: rgba(10, 10, 14, 0.7);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    padding: 0.4em;
+}
+
+.navbar .logo img {
+    height: 50px;
+}
+
+.navbar nav ul {
+    display: flex;
+    list-style: none;
+}
+
+.navbar nav ul li {
+    margin-left: 2rem;
+}
+
+.navbar nav ul li a {
+    text-decoration: none;
+    color: var(--text-light);
+    font-weight: 600;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.navbar nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    display: block;
+    margin-top: 5px;
+    background: var(--primary-orange);
+    transition: width 0.3s ease;
+}
+
+.navbar nav ul li a:hover::after,
+.navbar nav ul li a.active::after {
+    width: 100%;
+}
+
+/* Hero Section */
+.hero-section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+.hero-content h1 {
+    font-size: clamp(2rem, 8vw, 5rem);
+    background: linear-gradient(90deg, var(--primary-blue), var(--primary-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.hero-content p {
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    opacity: 0;
+    animation: fadeIn 1s 0.5s ease-in-out forwards;
+}
+
+/* General Sections */
+.content-section, .portfolio-section, .contact-section {
+    padding: 8rem 5%;
+    min-height: 100vh;
+}
+
+h2 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    text-align: center;
+    margin-bottom: 3rem;
+    background: linear-gradient(90deg, var(--primary-orange), var(--primary-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 600;
+}
+
+/* Services Section */
+.services-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.service-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 2rem;
+    max-width: 350px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    will-change: transform;
+}
+
+.service-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.service-card h3 {
+    color: var(--primary-orange);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+
+
+/* Portfolio Section */
+---
+/* New: Animated Heart-Beat Logo Hero Section */
+.logo-hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh; /* Make it take up the full screen height */
+    position: relative;
+    z-index: 50; /* Ensure it's above other elements but below the navbar */
+}
+
+.logo-hero img {
+    height: 150px; /* Increased size */
+    opacity: 0;
+    animation: fadeIn 1.5s ease-in-out forwards;
+}
+
+.logo-hero h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    background: linear-gradient(90deg, var(--primary-orange), var(--primary-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 600;
+    margin-top: 1rem;
+    opacity: 0;
+    animation: fadeIn 1.5s 0.5s ease-in-out forwards;
+}
+
+/* New: Heart-Beat Animation */
+@keyframes heartBeat {
+    0% { transform: scale(1); }
+    14% { transform: scale(1.1); }
+    28% { transform: scale(1); }
+    42% { transform: scale(1.1); }
+    70% { transform: scale(1); }
+}
+
+/* Apply heart-beat to the logo after the initial fade-in */
+.logo-hero img {
+    animation: fadeIn 1.5s ease-in-out forwards, heartBeat 3s infinite 2s; /* 2s delay */
+}
+
+
+.portfolio-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+}
+
+.category-section h2 {
+    margin-top: 0;
+}
+
+.category-section p {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-style: italic;
+    color: var(--primary-blue);
+}
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.photo-grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    will-change: transform;
+}
+
+.photo-grid img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(255, 110, 64, 0.3);
+}
+
+/* Contact Section */
+.contact-container {
+    text-align: center;
+}
+
+.contact-container p {
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+    color: var(--primary-purple);
+}
+
+.contact-button {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: linear-gradient(45deg, var(--primary-blue), var(--primary-purple));
+    color: var(--text-light);
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.social-link img {
+    width: 48px;
+    height: 48px;
+    filter: grayscale(100%) brightness(1.5);
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.social-link:hover img {
+    filter: grayscale(0%) brightness(1);
+    transform: scale(1.1);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background: rgba(10, 10, 14, 0.5);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Keyframes for animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem 5%;
+    }
+    
+    .navbar nav ul {
+        margin-top: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .navbar nav ul li {
+        margin: 0.5rem 1rem;
+    }
+
+    .hero-content h1 {
+        font-size: clamp(2rem, 10vw, 4rem);
+    }
+
+    .content-section, .portfolio-section, .contact-section {
+        padding: 5rem 5%;
+    }
+    
+    .services-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Contact Section */
+.contact-section {
+    padding: 5rem 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-container glass-card {
+    width: 100%;
+    max-width: 700px;
+    padding: 3rem;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.contact-container h2 {
+    font-size: 2.5rem;
+    background: linear-gradient(90deg, var(--primary-orange), var(--primary-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.contact-container p {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--text-light-translucent);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 1rem;
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-light);
+    border-radius: 10px;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 15px rgba(92, 107, 192, 0.5);
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+/* Styling for the Send Email Button */
+.cta-button.email-button {
+    display: block;
+    max-width: 300px; /* Set a maximum width for the button */
+    margin: 0 auto; /* Center the button horizontally */
+    padding: 1rem;
+    font-size: 1.25rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: var(--primary-purple);
+    color: var(--text-light);
+    box-shadow: 0 5px 15px rgba(149, 117, 205, 0.3);
+}
+
+/* Hover effect */
+.cta-button.email-button:hover {
+    background: var(--primary-orange);
+    box-shadow: 0 5px 20px rgba(255, 110, 64, 0.5);
+    transform: translateY(-2px);
+}
+
+.cta-button:hover {
+    background: var(--primary-blue);
+    box-shadow: 0 5px 20px rgba(92, 107, 192, 0.5);
+    transform: translateY(-2px);
+}
+
+/* Core Layout Fix */
+section {
+    width: 100%;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+.email-button {
+    text-decoration: none;
+    text-align: center;
+    line-height: 1.25rem;
+}
+
+
+footer {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--text-dark);
+    font-size: 0.875rem;
+    margin-top: 5rem; /* Pushes the footer down */
+}
+
+
+
+
+
+/* Media Query for Mobile */
+@media screen and (max-width: 768px) {
+    main {
+        padding-top: 4rem;
+    }
+    .navbar {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0.05em;
+    }
+
+    .nav-links {
+        display: none; /* Hide the regular menu on mobile */
+        width: 100%;
+        position: absolute;
+        top: 0.1px; /* Adjust this value if your navbar is taller */
+        left: 0;
+        background-color: rgba(23, 23, 58, 0.9);
+        border-top: 1px solid #131212;
+    }
+
+    .nav-links.active {
+        display: block; /* Show the menu when the active class is added by JS */
+    }
+
+    .nav-links ul {
+        flex-direction: column;
+        text-align: center;
+        padding: 0;
+    }
+
+    .nav-links li {
+        margin: 0;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 1rem;
+        border-bottom: 1px solid #444;
+    }
+
+    .hamburger {
+        display: flex; /* Show the hamburger icon on mobile */
+        flex-direction: column;
+        justify-content: space-between;
+        width: 25px;
+        height: 18px;
+        cursor: pointer;
+    }
+
+    .hamburger .line {
+        width: 100%;
+        height: 2px;
+        background-color: white;
+        transition: all 0.3s ease;
+    }
+}
+
+/* Keyframes for the 'heartbeat' animation */
+@keyframes heartbeat {
+    0% {
+        transform: scale(1);
+    }
+    10% {
+        transform: scale(1.05);
+    }
+    20% {
+        transform: scale(1);
+    }
+    30% {
+        transform: scale(1.05);
+    }
+    40% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Apply the animation to the logo image */
+.logo img {
+    animation: heartbeat 3s infinite;
+}
+
+
+/* Keyframes for the 'float' animation */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* Apply the float animation to the hero section logo */
+.hero-content img {
+    animation: float 3s ease-in-out infinite;
+}
