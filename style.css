@@ -579,3 +579,15 @@ footer {
 .hero-content img {
     animation: float 3s ease-in-out infinite;
 }
+
+
+/* Make the hamburger menu button a higher z-index than other elements */
+.menu-toggle {
+    z-index: 1001; /* Set a very high value */
+}
+
+/* Ensure the overlay menu is also on top */
+.nav-menu {
+    z-index: 1000;
+}
+
