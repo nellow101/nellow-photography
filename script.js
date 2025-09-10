@@ -38,6 +38,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 'Portraits/portrait1.jpg',
                 'Portraits/portrait2.jpg',
                 'Portraits/portrait3.jpg',
+                'Portraits/portrait4.jpg',
+                'Portraits/portrait5.jpg',
+                'Portraits/portrait6.jpg',
                 // Add more portrait image paths here
             ],
             'Landscapes': [
@@ -153,4 +156,5 @@ document.querySelectorAll('.nav-overlay a').forEach(link => {
     link.addEventListener('click', () => {
         navOverlay.classList.remove('active');
     });
+
 });
