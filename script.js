@@ -158,3 +158,18 @@ document.querySelectorAll('.nav-overlay a').forEach(link => {
     });
 
 });
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+
+    // Add a check to make sure the elements exist
+    if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+    }
+});
+
+
