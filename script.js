@@ -59,7 +59,9 @@ document.addEventListener('DOMContentLoaded', () => {
             ],
             'Landscapes': [
                 'Landscapes/landscape1.jpg',
-                'Landscapes/landscape2.png',
+                'Landscapes/landscape2.jpg',
+                'Landscapes/landscape3.jpg',
+                'Landscapes/landscape4.jpg',
                 // Add more landscape image paths here
             ],
             'Nature': [
@@ -185,6 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
 
 
 
