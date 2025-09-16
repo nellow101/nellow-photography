@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 'Portraits/portrait5.jpg',
                 'Portraits/portrait6.jpg',
                 'Portraits/portrait7.jpg',
-                'Portraits/portrait8.jpg',
+              //  'Portraits/portrait8.jpg',
                 'Portraits/portrait9.jpg',
                 'Portraits/portrait10.jpg',
                 'Portraits/portrait11.jpg',
@@ -187,6 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
 
 
 
