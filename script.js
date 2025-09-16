@@ -41,6 +41,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 'Portraits/portrait4.jpg',
                 'Portraits/portrait5.jpg',
                 'Portraits/portrait6.jpg',
+                'Portraits/portrait7.jpg',
+                'Portraits/portrait8.jpg',
+                'Portraits/portrait9.jpg',
+                'Portraits/portrait10.jpg',
+                'Portraits/portrait11.jpg',
+                'Portraits/portrait12.jpg',
+                'Portraits/portrait13.jpg',
+                'Portraits/portrait14.jpg',
+                'Portraits/portrait15.jpg',
+                'Portraits/portrait16.jpg',
+                'Portraits/portrait17.jpg',
+                'Portraits/portrait18.jpg',
+                'Portraits/portrait19.jpg',
+            
                 // Add more portrait image paths here
             ],
             'Landscapes': [
@@ -171,5 +185,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
 
 
